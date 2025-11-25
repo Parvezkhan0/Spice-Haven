@@ -7,7 +7,7 @@
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue)](https://www.typescriptlang.org/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind-v4-38bdf8)](https://tailwindcss.com/)
 
-[🌐 **View Live Demo**](YOUR_RENDER_LINK_HERE) | [📧 **Contact Me**](YOUR_EMAIL_OR_CONTACT)
+[🌐 **View Live Demo**]((https://spice-haven.onrender.com))
 
 ---
 
@@ -169,8 +169,6 @@ Text:       #2C1810 (Dark Brown)    - Readability
 ### Mobile View
 ![Mobile Screenshot](YOUR_MOBILE_SCREENSHOT_URL)
 
-### Dark Mode
-![Dark Mode Screenshot](YOUR_DARKMODE_SCREENSHOT_URL)
 
 ---
 
@@ -307,7 +305,7 @@ For commercial use or white-label licensing, please contact me.
 
 ### 🚀 Ready to boost your restaurant's online presence?
 
-**[View Live Demo](YOUR_RENDER_LINK_HERE)** 
+**[View Live Demo]([YOUR_RENDER_LINK_HERE](https://spice-haven.onrender.com))** 
 
 Made with ❤️ for authentic Indian cuisine
 
