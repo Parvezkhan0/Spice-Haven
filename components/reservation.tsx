@@ -1,143 +1,160 @@
-"use client"
+'use client';
 
-import type React from "react"
+import { useState } from 'react';
 
-import { useState } from "react"
-
-export function Reservation() {
+export default function Reservation() {
   const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    date: "",
-    time: "",
-    guests: "2",
-  })
+    fullName: '',
+    email: '',
+    phone: '',
+    guests: '2',
+    date: '',
+    time: ''
+  });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
-    const { name, value } = e.target
-    setFormData((prev) => ({ ...prev, [name]: value }))
-  }
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    console.log("Reservation submitted:", formData)
-    alert("Thank you for your reservation! We will confirm shortly.")
-    setFormData({ name: "", email: "", phone: "", date: "", time: "", guests: "2" })
-  }
+    e.preventDefault();
+    console.log('Reservation submitted:', formData);
+    // Add your form submission logic here
+    alert('Reservation request submitted! We will contact you shortly.');
+  };
 
   return (
-    <section className="py-20 px-4">
-      <div className="max-w-2xl mx-auto">
-        <div className="text-center mb-12">
-          <p className="text-accent text-lg mb-2 font-semibold">RESERVE YOUR TABLE</p>
-          <h2 className="text-4xl font-bold text-foreground mb-4">Book a Dining Experience</h2>
-          <p className="text-muted-foreground">Join us for an unforgettable culinary journey</p>
+    <>
+      {/* Reservation Form Section */}
+      <section id="reservation" className="reservation-section">
+        <div className="reservation-content">
+          <p className="section-tag">RESERVE YOUR TABLE</p>
+          
+          <h2>Book a Dining Experience</h2>
+          
+          <p>Join us for an unforgettable culinary journey</p>
+          
+          <form className="reservation-form" onSubmit={handleSubmit}>
+            <div className="form-grid">
+              <div className="form-group">
+                <label htmlFor="fullName">Full Name</label>
+                <input
+                  type="text"
+                  id="fullName"
+                  name="fullName"
+                  placeholder="Your name"
+                  value={formData.fullName}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+              
+              <div className="form-group">
+                <label htmlFor="email">Email</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="your@email.com"
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+              
+              <div className="form-group">
+                <label htmlFor="phone">Phone</label>
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  placeholder="+1 (555) 000-0000"
+                  value={formData.phone}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+              
+              <div className="form-group">
+                <label htmlFor="guests">Guests</label>
+                <select
+                  id="guests"
+                  name="guests"
+                  value={formData.guests}
+                  onChange={handleChange}
+                  required
+                >
+                  <option value="1">1 Guest</option>
+                  <option value="2">2 Guests</option>
+                  <option value="3">3 Guests</option>
+                  <option value="4">4 Guests</option>
+                  <option value="5">5 Guests</option>
+                  <option value="6">6 Guests</option>
+                  <option value="7">7 Guests</option>
+                  <option value="8">8 Guests</option>
+                  <option value="8+">8+ Guests</option>
+                </select>
+              </div>
+              
+              <div className="form-group">
+                <label htmlFor="date">Date</label>
+                <input
+                  type="date"
+                  id="date"
+                  name="date"
+                  placeholder="mm/dd/yyyy"
+                  value={formData.date}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+              
+              <div className="form-group">
+                <label htmlFor="time">Time</label>
+                <input
+                  type="time"
+                  id="time"
+                  name="time"
+                  placeholder="--:-- --"
+                  value={formData.time}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+            </div>
+            
+            <button type="submit" className="btn-submit">
+              Reserve Now
+            </button>
+          </form>
         </div>
-
-        <form onSubmit={handleSubmit} className="bg-secondary/5 p-8 rounded-lg border border-border">
-          <div className="grid md:grid-cols-2 gap-6 mb-6">
-            <div>
-              <label className="block text-foreground font-semibold mb-2">Full Name</label>
-              <input
-                type="text"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                required
-                className="w-full px-4 py-2 bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-accent"
-                placeholder="Your name"
-              />
-            </div>
-            <div>
-              <label className="block text-foreground font-semibold mb-2">Email</label>
-              <input
-                type="email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                required
-                className="w-full px-4 py-2 bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-accent"
-                placeholder="your@email.com"
-              />
-            </div>
-            <div>
-              <label className="block text-foreground font-semibold mb-2">Phone</label>
-              <input
-                type="tel"
-                name="phone"
-                value={formData.phone}
-                onChange={handleChange}
-                required
-                className="w-full px-4 py-2 bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-accent"
-                placeholder="+1 (555) 000-0000"
-              />
-            </div>
-            <div>
-              <label className="block text-foreground font-semibold mb-2">Guests</label>
-              <select
-                name="guests"
-                value={formData.guests}
-                onChange={handleChange}
-                className="w-full px-4 py-2 bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-accent"
-              >
-                {[1, 2, 3, 4, 5, 6, 7, 8].map((num) => (
-                  <option key={num} value={num}>
-                    {num} {num === 1 ? "Guest" : "Guests"}
-                  </option>
-                ))}
-              </select>
-            </div>
-            <div>
-              <label className="block text-foreground font-semibold mb-2">Date</label>
-              <input
-                type="date"
-                name="date"
-                value={formData.date}
-                onChange={handleChange}
-                required
-                className="w-full px-4 py-2 bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-accent"
-              />
-            </div>
-            <div>
-              <label className="block text-foreground font-semibold mb-2">Time</label>
-              <input
-                type="time"
-                name="time"
-                value={formData.time}
-                onChange={handleChange}
-                required
-                className="w-full px-4 py-2 bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-accent"
-              />
-            </div>
+      </section>
+      
+      {/* Contact Info Section */}
+      <section className="contact-info">
+        <div className="contact-content">
+          <div className="contact-item">
+            <div className="contact-icon">📍</div>
+            <h3>Address</h3>
+            <p>123 Spice Street, Food City</p>
           </div>
-
-          <button
-            type="submit"
-            className="w-full py-3 bg-accent text-background rounded-lg font-bold hover:opacity-90 transition text-lg"
-          >
-            Reserve Now
-          </button>
-        </form>
-
-        <div className="mt-12 grid md:grid-cols-3 gap-8 text-center">
-          <div>
-            <p className="text-2xl font-bold text-accent mb-2">📍</p>
-            <p className="font-semibold text-foreground">Address</p>
-            <p className="text-muted-foreground">123 Spice Street, Food City</p>
+          
+          <div className="contact-item">
+            <div className="contact-icon">📞</div>
+            <h3>Phone</h3>
+            <p>(555) 123-4567</p>
           </div>
-          <div>
-            <p className="text-2xl font-bold text-accent mb-2">📞</p>
-            <p className="font-semibold text-foreground">Phone</p>
-            <p className="text-muted-foreground">(555) 123-4567</p>
-          </div>
-          <div>
-            <p className="text-2xl font-bold text-accent mb-2">🕐</p>
-            <p className="font-semibold text-foreground">Hours</p>
-            <p className="text-muted-foreground">Tue-Sun: 5 PM - 11 PM</p>
+          
+          <div className="contact-item">
+            <div className="contact-icon">🕐</div>
+            <h3>Hours</h3>
+            <p>Tue-Sun: 5 PM - 11 PM</p>
           </div>
         </div>
-      </div>
-    </section>
-  )
+      </section>
+    </>
+  );
 }
