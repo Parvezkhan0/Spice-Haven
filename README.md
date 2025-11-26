@@ -10,13 +10,9 @@
 [🌐 **View Live Demo**]((https://spice-haven.onrender.com))
 
 ---
-
 ## 📸 Preview
-
-![Landing Page Preview](YOUR_SCREENSHOT_URL_HERE)
-
+![Landing Page Preview](./screenshots/landing-page.png)
 *A modern, mobile-first landing page designed to increase restaurant bookings and online orders.*
-
 ---
 
 ## ✨ Key Features
@@ -164,7 +160,7 @@ Text:       #2C1810 (Dark Brown)    - Readability
 ## 📸 Screenshots
 
 ### Desktop View
-![Desktop Screenshot](YOUR_DESKTOP_SCREENSHOT_URL)
+![Desktop Screenshot](./screenshots/landing-page.png)
 
 ### Mobile View
 ![Mobile Screenshot](YOUR_MOBILE_SCREENSHOT_URL)
