@@ -251,7 +251,7 @@ npm run dev
 
 - ✅ **TypeScript** - Type-safe, fewer bugs
 - ✅ **ESLint** - Consistent code style
-- ✅ **Component-Based** - Easy to maintain and extend
+- ✅ **Component-Based** - Easy to maintain & extend
 - ✅ **Responsive Design** - Works everywhere
 - ✅ **Semantic HTML** - SEO and accessibility friendly
 - ✅ **Clean Architecture** - Easy for other developers to understand
